@@ -328,9 +328,10 @@ const CONFIG = {
   STIMULUS_TYPE: 'audio',
   STIMULUS_BASE_URL: 'audio/',
   STIMULI: [
-    'sample_01.mp3',
-    'sample_02.mp3',
-    'sample_03.mp3',
+    '1.wav',
+    '2.wav',
+    '3.wav',
+    '4.wav',
   ],
 
   // ─ 다른 자극으로 바꿀 때는 위 세 줄을 아래처럼 통째로 갈아끼우면 됨 ─
@@ -349,9 +350,9 @@ const CONFIG = {
 
   // ③ 화면 문구 ─ {n}은 자극 개수로 바뀜
   STUDY: {
-    label: '영어학 청취 실험',
-    title: '이 목소리는 어떻게 들리나요?',
-    subtitle: '짧은 음성을 하나씩 듣고 몇 가지 질문에 답하는 실험입니다. 약 10분 걸립니다.',
+    label: 'TTS 청취 실험',
+    title: '숙제 테스트용입니닷',
+    subtitle: '안녕하세요오늘도잘부탁드립니다9월30일',
     instructions: [
       '자극 {n}개를 하나씩 보게 됩니다.',
       '각 자극을 확인한 뒤 질문에 답해 주세요.',
@@ -379,33 +380,24 @@ const CONFIG = {
   //      'map'    : 미국 지도에 핀   (아래 REGIONS 설정을 같이 씀)
   //    required: 생략하면 text만 선택, 나머지는 필수
   QUESTIONS: [
-    { id: 'natural', type: 'likert', scale: 5,
-      text: '수업만족도 ',
-      anchorLow: '전혀 만족스럽지 않음', anchorHigh: '매우 만족스러움' },
-    { id: 'human_or_tts', type: 'likert', scale: 3,
-      text: '사람 목소리인가요, 합성음인가요?',
-      anchorLow: '기계에 가까움', anchorHigh: '사람에 가까움' },
-    { id: 'age_guess', type: 'slider', min: 10, max: 80, step: 1, unit: '세',
-      text: '화자의 나이는 몇 살쯤으로 들리나요?',
+    { id: 'money', type: 'slider', min: 10, max: 9999, step: 1, unit: '만원',
+      text: '매달 얼마를 공짜로 받고싶나요',
       anchorLow: '10세', anchorHigh: '80세' },
-    { id: 'impression', type: 'multi', minSelect: 1,
-      text: '이 목소리에 어울리는 인상을 모두 골라 주세요.',
-      options: ['친근함', '전문적임', '딱딱함', '밝음', '차분함'] },
-    { id: 'human_or_tts2', type: 'choice',
-      text: '이 목소리를 다시 듣고 싶나요?',
-      options: ['예', '아니오'] },
-    { id: 'comment', type: 'text',
-      text: '떠오르는 인상이 있으면 자유롭게 적어 주세요.', placeholder: '선택 사항' },
-    // { id: 'origin', type: 'map', text: '이 목소리는 미국 어느 지역 출신 같나요? 지도를 눌러 핀을 꽂아 주세요.' },
+    { id: 'tired', type: 'likert', scale: 7,
+      text: '피곤하십니까?',
+      anchorLow: '누우면 바로 잠', anchorHigh: '혈류에 커피가 흐르고 있어요' },
+    { id: 'mood', type: 'multi', minSelect: 2,
+      text: '오늘 기분을 골라보시오',
+      options: ['모름', '슬픔', '웃김', '그냥그럼', '차분함', '아무생각없음'] },  
   ],
 
   // ⑥ 참가자 정보 ─ 모든 자극이 끝난 뒤 한 번. 빈 배열 []이면 이 화면을 건너뜀.
   //    type: 'text' | 'number' | 'email' | 'select'(options 필요). 이름·이메일 같은 개인정보는 IRB 승인 범위 안에서만.
   INFO_FIELDS: [
     { id: 'age', label: '나이', type: 'number', placeholder: '예: 24' },
-    { id: 'native_language', label: '모국어', type: 'text', placeholder: '예: 한국어' },
-    { id: 'english_level', label: '영어 수준', type: 'select',
-      options: ['원어민', '원어민에 가까움', '중급', '초급'] },
+    { id: '전공', label: '전공', type: 'text', placeholder: '예: 영어영문학과' },
+    { id: 're', label: '재수강 희망', type: 'select',
+      options: ['매우', '시간남으면?', '그냥그럼ㅋㅋ', 'ㄴㄴ'] },
     { id: 'comments', label: '남기고 싶은 말', type: 'text', required: false },
   ],
 
